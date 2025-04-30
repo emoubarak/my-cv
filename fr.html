@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mahdi Moubarak | Développeur Logiciel Polyvalent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-opacity-90 bg-darker backdrop-blur-sm z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center space-x-2">
+                        
+                        <span class="text-white font-bold text-xl title-font">El Mahdi</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white nav-link">Accueil</a>
+                    <a href="#about" class="text-gray-300 hover:text-white nav-link">Profil</a>
+                    <a href="#experience" class="text-gray-300 hover:text-white nav-link">Expérience</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white nav-link">Projets</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white nav-link">Contact</a>
+                    <a href="#contact" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300">
+                        Travaillons ensemble
+                    </a>
+                    <a id="lang-switch"
+                    class="flex items-center gap-1 text-gray-300 hover:text-white transition"
+                    aria-label="Changer de langue" href="en.html">
+                    <img id="flag-icon" src="https://flagcdn.com/w20/gb.png" alt="EN" class="w-5 h-5 rounded-full" />
+                    <span id="lang-code" class="text-sm font-semibold">EN</span>
+                </a>
+                </div>
+
+
+
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-darker px-4 pb-4">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Accueil</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Profil</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Expérience</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Projets</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Contact</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-center bg-gradient-to-r from-blue-500 to-emerald-500 text-white">
+                    Travaillons ensemble
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div id="canvas-container"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-darker opacity-90"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="flex flex-col items-center">
+                <div class="w-32 h-32 rounded-full border-4 border-blue-500 mb-6 overflow-hidden">
+                    <img src="profile.png" 
+                         alt="El Mahdi Moubarak" class="w-full h-full object-cover">
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 title-font">
+                    <span class="gradient-text">El Mahdi Moubarak</span>
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Développeur logiciel polyvalent 
+                    <br>
+                     SaaS, E-commerce et IA
+                </h2>
+                
+                <p class="text-xl md:text-2xl text-white mb-12 italic">
+                    "C’est avec un peu de code et beaucoup de débrouille que je construis demain."
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300 flex items-center">
+                        <i class="fas fa-code mr-2"></i> Explorer mes projets
+                    </a>
+                    <a href="#about" class="px-6 py-3 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500 hover:text-white transition duration-300 flex items-center">
+                        <i class="fas fa-user mr-2"></i> Découvrir mon parcours
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-24 flex justify-center space-x-6">
+                <div class="floating">
+                    <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
+                        <i class="fab fa-angular text-blue-400 text-2xl"></i>
+                    </div>
+                </div>
+                <div class="floating floating-delay-1">
+                    <div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                        <i class="fab fa-react text-emerald-400 text-2xl"></i>
+                    </div>
+                </div>
+                <div class="floating floating-delay-2">
+                    <div class="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center">
+                        <i class="fab fa-python text-purple-400 text-2xl"></i>
+                    </div>
+                </div>
+                <div class="floating floating-delay-3">
+                    <div class="w-16 h-16 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                        <i class="fab fa-js text-yellow-400 text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    À propos de <span class="gradient-text">moi</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-2xl min-w-80"></div>
+                        <img src="profile.png"
+                             alt="El Mahdi Moubarak" class="absolute top-6 left-6 w-full h-96 object-cover rounded-2xl border-4 border-darker ">
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">
+                        Développeur logiciel polyvalent et passionné
+                    </h3>
+                    
+                    <p class="text-gray-300 mb-6">
+                        J’ai appris le métier en mettant les mains dans le cambouis. Du SaaS à l’e-commerce, en passant par des automations plus ou moins bricolées, j’ai un peu tout touché. Curieux de nature et débrouillard par nécessité, je suis ce genre de profil mi-développeur, mi-couteau suisse — toujours prêt à dégainer une idée ou une ligne de code.
+                    </p>
+                    
+                    <p class="text-gray-300 mb-8">
+                        Mon outil préféré ? L’intelligence artificielle (quand elle ne me fait pas perdre trois heures pour un bug inexistant). Je m’en sers pour gagner du temps, simplifier la vie des autres (et la mienne), et transformer des workflows bancals en machines bien huilées. Bref, je suis là où il faut quand il faut — surtout s’il faut bidouiller quelque chose.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="px-4 py-2 bg-blue-500/20 rounded-full flex items-center">
+                            <img src="https://flagcdn.com/w20/fr.png" alt="French" class="language-flag">
+                            <span class="text-blue-400">Français (natif)</span>
+                        </div>
+                        <div class="px-4 py-2 bg-emerald-500/20 rounded-full flex items-center">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
+                            <span class="text-emerald-400">Anglais (professionnel)</span>
+                        </div>
+                        <div class="px-4 py-2 bg-purple-500/20 rounded-full flex items-center">
+                            <img src="https://flagcdn.com/w20/es.png" alt="Spanish" class="language-flag">
+                            <span class="text-purple-400">Espagnol (professionnel)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300 flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Me contacter
+                        </a>
+                        <a href="#" class="px-6 py-3 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500 hover:text-white transition duration-300 flex items-center">
+                            <i class="fas fa-download mr-2"></i> Télécharger mon CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Timeline -->
+            <div class="mt-20">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+                    Mon <span class="gradient-text">parcours</span> académique
+                </h3>
+                
+                <div class="relative timeline max-w-3xl mx-auto pl-16">
+                    <div class="mb-12 timeline-item">
+                        <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-white">IMT Nord Europe</h4>
+                                <span class="text-sm text-gray-400">2017 - 2022</span>
+                            </div>
+                            <p class="text-gray-300 mb-2">Diplôme d'ingénieur en informatique, réseaux et télécommunications</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Développement Web</span>
+                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Structures de données</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Systèmes numériques</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">Cybersécurité</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-12 timeline-item">
+                        <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-white">Lycée Français International Louis-Massignon</h4>
+                                <span class="text-sm text-gray-400">2017</span>
+                            </div>
+                            <p class="text-gray-300">Baccalauréat Scientifique, spécialité Mathématiques, option Musique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Section -->
+            <div class="mt-20">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+                    Mes <span class="gradient-text">compétences</span> clés
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Web & Mobile Development -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-blue-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Développement Web & Mobile</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Vue.js</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">React Native</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Django</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">AngularJS</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">TypeScript</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">PostgreSQL</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Spring Boot</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-cloud text-emerald-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Cloud & DevOps</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">AWS (EC2, Route53)</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Git</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Docker</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Heroku</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Vercel</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">CI/CD</span>
+                        </div>
+                    </div>
+                    
+                    <!-- E-commerce & Automation -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-shopping-cart text-purple-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">E-commerce & Automatisation</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Shopify API</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Gadget Dev</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">SEO</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Automatisation</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Liquid</span>
+                        </div>
+                    </div>
+                    
+                    <!-- AI & LLM APIs -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-robot text-yellow-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">IA & API LLM</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">OpenAI API</span>
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">ElevenLabs</span>
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">Vectorisation</span>
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">GPT</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Languages -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-language text-pink-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Langues</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Français (natif)</span>
+                            <span class="skill-badge px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Anglais (professionnel)</span>
+                            <span class="skill-badge px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Espagnol (professionnel)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    Mon <span class="gradient-text">expérience</span> professionnelle
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            </div>
+            
+            <div class="relative timeline max-w-4xl mx-auto pl-16">
+                <!-- Board of Cyber -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Board of Cyber</h4>
+                                <p class="text-gray-400">Paris, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">Mars 2023 - Présent</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Poste :</span> Ingénieur Logiciel Front-End
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Développement d'une solution SaaS de Security Rating® pour évaluer la maturité cyber des entreprises.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Missions :</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Développement Angular du logiciel SaaS Security Rating®: implémentation de composants, bug fix, migration de librairie, optimisation</li>
+                                <li>Développement du site corporate de l'entreprise</li>
+                                <li>Développement de sonde d'analyse cybersécurité en python</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">AngularJS</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Grav</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Git</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ALTAO -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">ALTAO - Secteur Santé</h4>
+                                <p class="text-gray-400">Lille, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">Septembre 2021 - Septembre 2022</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Poste :</span> Ingénieur Logiciel Full-Stack
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Développement d'une application web pour la correction des erreurs dans les comptes rendus hospitaliers, intégrant un algorithme de prédiction et un moteur de règles.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Missions :</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Conception, implémentation et suivi d'une application web permettant de corriger les erreurs dans les comptes rendus hospitaliers</li>
+                                <li>Déploiement de l'application en utilisant Amazon Web Services (EC2, Route53, Amplify)</li>
+                                <li>Collaboration avec des médecins et des consultants pour comprendre la logique métier</li>
+                                <li>Collaboration avec des stagiaires data scientists et intégration de leurs algorithmes</li>
+                                <li>Participation à la gestion de divers projets axés sur la digitalisation dans le domaine médical</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Django</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">AWS</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">EC2</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Route53</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Amplify</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deuspi -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Deuspi - Startup Livraison Express</h4>
+                                <p class="text-gray-400">Lille, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">Mars 2021 - Juin 2021</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Poste :</span> Développeur Front-End Mobile
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Développement du front-end d'une application mobile en React Native pour une startup de livraison en moins de 15 minutes.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Missions :</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Conception d'une première ébauche de l'interface (MockPlus)</li>
+                                <li>Collaboration avec un stagiaire UX/UI designer et un développeur back-end freelance</li>
+                                <li>Développement du front-end d'une application mobile de livraison de courses (React Native)</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">React Native</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">MockPlus</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Worldline -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Worldline - Paiements & Transactions</h4>
+                                <p class="text-gray-400">Seclin, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">Avril 2019 - Août 2019</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Poste :</span> Développeur d'Applications Web
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Création d'un outil interne facilitant le débogage des démonstrations interactives de solutions de paiement, développement d'une application mobile de détection de dates d'expiration des produits avec caméra.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Missions :</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Développement d'une application web permettant à l'équipe R&D de déboguer des démonstrations interactives avec un broker MQTT et des requêtes prédéfinies</li>
+                                <li>Développement d'une application mobile permettant la détection de la date d'expiration des produits avec la caméra</li>
+                                <li>Revue de code d'autres projets (PHP, HTML/CSS, JavaScript)</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">MQTT</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Docker</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Java Android</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+   <!-- Projects Section -->
+<section id="projects" class="py-20 bg-darker">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                Mes <span class="gradient-text">projets</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+                Découvrez une sélection de mes projets personnels et professionnels, allant du développement web à l'automatisation et l'IA.
+            </p>
+        </div>
+        
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-full filter-btn active" data-filter="all">Tous</button>
+            <button class="px-4 py-2 border border-blue-500 text-blue-400 rounded-full filter-btn" data-filter="site-vitrine">Site vitrine</button>
+            <button class="px-4 py-2 border border-emerald-500 text-emerald-400 rounded-full filter-btn" data-filter="e-commerce">E-commerce</button>
+            <button class="px-4 py-2 border border-purple-500 text-purple-400 rounded-full filter-btn" data-filter="seo">SEO</button>
+            <button class="px-4 py-2 border border-yellow-500 text-yellow-400 rounded-full filter-btn" data-filter="webapp">Web application</button>
+            <button class="px-4 py-2 border border-pink-500 text-pink-400 rounded-full filter-btn" data-filter="mobile">Application mobile</button>
+            <button class="px-4 py-2 border border-red-500 text-red-400 rounded-full filter-btn" data-filter="software">Développement logiciel</button>
+            <button class="px-4 py-2 border border-indigo-500 text-indigo-400 rounded-full filter-btn" data-filter="ia">IA</button>
+        </div>
+        
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 projects-grid">
+            <!-- Vyrion Capital -->
+            <div class="project-card" data-category="site-vitrine">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Vyrion Capital</h3>
+                            <p class="text-gray-300 mb-4">Site broker international</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Site vitrine</span>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Broker</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Vyrion Capital</h3>
+                        <p class="text-gray-200 mb-4">Site vitrine pour un broker international avec design professionnel et optimisation UX.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Design</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Responsive</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UX</span>
+                        </div>
+                        <a href="https://vyrioncapital.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-blue-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="site-vitrine seo">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-indigo-600 to-blue-400 flex items-center justify-center">
+                            <i class="fas fa-bullhorn text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Agence KSUR</h3>
+                            <p class="text-gray-300 mb-4">Agence digitale au Maroc</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Site vitrine</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Agence</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Maroc</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Wordpress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-indigo-500/20 to-blue-400/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Agence KSUR</h3>
+                        <p class="text-gray-200 mb-4">Site vitrine moderne pour une agence digitale basée au Maroc, mettant en avant ses services en marketing, développement web et branding.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Digital</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Maroc</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Branding</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Wordpress</span>
+                        </div>
+                        <a href="https://agence-ksur.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+
+       
+
+            <div class="project-card" data-category="site-vitrine seo">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-coins text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">le Crypto Guide</h3>
+                            <p class="text-gray-300 mb-4">Formations staking crypto</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">Site vitrine</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">Crypto</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">WordPress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">le Crypto Guide</h3>
+                        <p class="text-gray-200 mb-4">Site WordPress éducatif pour découvrir et acheter des formations sur le staking crypto, avec tunnel de vente intégré.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Éducation</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Staking</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">WordPress</span>
+                        </div>
+                        <a href="https://lecryptoguide.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-pink-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <!-- Mon Jouet Montessori -->
+            <div class="project-card" data-category="e-commerce seo">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-yellow-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Mon Jouet Montessori</h3>
+                            <p class="text-gray-300 mb-4">Boutique e-commerce optimisée SEO</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">E-commerce</span>
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">SEO</span>
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">Shopify</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-yellow-500/20 to-pink-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Mon Jouet Montessori</h3>
+                        <p class="text-gray-200 mb-4">Une boutique en ligne optimisée SEO dans la niche des jouets éducatifs Montessori, avec automatisation des processus.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Dropshipping</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Marketing</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Conversion</span>
+                        </div>
+                        <a href="https://mon-jouet-montessori.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-yellow-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voyager Léger -->
+            <div class="project-card" data-category="e-commerce">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center">
+                            <i class="fas fa-suitcase-rolling text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Voyager Léger</h3>
+                            <p class="text-gray-300 mb-4">E-commerce accessoires de voyage</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">E-commerce</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-pink-500/20 to-red-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Voyager Léger</h3>
+                        <p class="text-gray-200 mb-4">Une boutique en ligne spécialisée dans les accessoires de voyage légers, avec une forte optimisation pour l'expérience utilisateur.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UX Design</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Conversion</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">FB Ads</span>
+                        </div>
+                        <a href="https://voyager-leger.fr/" class="mt-auto px-4 py-2 bg-white text-pink-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Piktechs -->
+            <div class="project-card" data-category="webapp">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
+                            <i class="fas fa-id-card-alt text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Piktechs</h3>
+                            <p class="text-gray-300 mb-4">SaaS cartes employé NFC</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Web App</span>
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">NFC</span>
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Next.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Piktechs</h3>
+                        <p class="text-gray-200 mb-4">Une plateforme innovante pour créer des cartes de visite virtuelles et vendre des cartes NFC personnalisables.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">React</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Node.js</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">NFC API</span>
+                        </div>
+                        <a href="https://piktechs.com/" class="mt-auto px-4 py-2 bg-white text-red-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Deuspi -->
+            <div class="project-card" data-category="mobile">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Deuspi</h3>
+                            <p class="text-gray-300 mb-4">Application de livraison de courses</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Mobile</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Livraison</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">React Native</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Deuspi</h3>
+                        <p class="text-gray-200 mb-4">Application mobile innovante pour la livraison de courses rapide et efficace.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">React Native</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Géolocalisation</span>
+                        </div>
+                        <a href="https://www.linkedin.com/company/deuspi/about/" class="mt-auto px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RSS Tool Altao -->
+            <div class="project-card" data-category="webapp">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
+                            <i class="fas fa-notes-medical text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">RSS Tool Altao</h3>
+                            <p class="text-gray-300 mb-4">Application de correction de fiche de santé RSS</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Web App</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Santé</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Data</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">RSS Tool Altao</h3>
+                        <p class="text-gray-200 mb-4">Application web pour la correction et la validation de fiches de santé RSS, avec interface intuitive.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">SPA</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UX Design</span>
+                        </div>
+                        <a href="https://altao.com/" class="mt-auto px-4 py-2 bg-white text-green-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shopify Ecommerce Bulk -->
+            <div class="project-card" data-category="e-commerce ia software">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-emerald-500 flex items-center justify-center">
+                            <i class="fab fa-shopify text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Shopify Ecommerce Bulk</h3>
+                            <p class="text-gray-300 mb-4">Outil de création de boutiques Shopify en bulk</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Automatisation</span>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">IA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Shopify Ecommerce Bulk</h3>
+                        <p class="text-gray-200 mb-4">Outil d'automatisation pour la création et la configuration de boutiques Shopify à grande échelle avec assistance IA.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Shopify API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Python</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">GPT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Optimisation UX & Thèmes Shopify -->
+            <div class="project-card" data-category="e-commerce">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Optimisation UX & Thèmes Shopify</h3>
+                            <p class="text-gray-300 mb-4">Amélioration parcours client & design thèmes</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">UX Design</span>
+                                <span class="px-2 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">Liquid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Optimisation UX & Thèmes Shopify</h3>
+                        <p class="text-gray-200 mb-4">Service d'amélioration du parcours client et création de designs sur mesure pour boutiques Shopify.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UI/UX</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Liquid</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Conversion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Finder AI -->
+            <div class="project-card" data-category="ia e-commerce software">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Product Finder AI</h3>
+                            <p class="text-gray-300 mb-4">Chatbot Shopify boosté par IA</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">GPT</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Vectorisation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Product Finder AI</h3>
+                        <p class="text-gray-200 mb-4">Un outil révolutionnaire pour les boutiques Shopify qui permet aux clients de trouver des produits grâce à un chatbot intelligent.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">OpenAI API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Embeddings</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Liquid</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text-to-Short-Video -->
+            <div class="project-card" data-category="ia software">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-emerald-500 to-yellow-500 flex items-center justify-center">
+                            <i class="fas fa-video text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Text-to-Short-Video</h3>
+                            <p class="text-gray-300 mb-4">Génération vidéo IA (GPT, DALL-E, ElevenLabs)</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs">OpenAI</span>
+                                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs">ElevenLabs</span>
+                                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs">FFmpeg</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-emerald-500/20 to-yellow-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Text-to-Short-Video</h3>
+                        <p class="text-gray-200 mb-4">Un pipeline complet pour générer automatiquement des vidéos courtes à partir de texte, avec voix synthétique et montage automatique.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">GPT-4</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">TTS</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Automation</span>
+                        </div>
+                        <a href="https://github.com/moubarakelmahdi1/Prompt-to-Short-Video" class="mt-auto px-4 py-2 bg-white text-emerald-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+      
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    Ma <span class="gradient-text">vision</span> & philosophie
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <div class="bg-slate-800/50 rounded-2xl p-8 backdrop-blur-sm border border-slate-700/50">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">
+                            Pourquoi je fais ce que je fais
+                        </h3>
+                        
+                        <p class="text-gray-300 mb-6">
+                            À la base, j’aime comprendre comment les choses fonctionnent. Et encore plus quand je peux les casser, les bidouiller, puis les faire marcher mieux qu’avant. Pour moi, la tech, c’est pas juste du code : c’est un outil pour simplifier la vie, débloquer des situations, et parfois même faire gagner du temps pour aller boire un café.                        </p>
+                        
+                        <p class="text-gray-300 mb-6">
+                            Je ne cours pas après la perfection, mais j’aime quand les choses sont claires, fluides et (tant qu’à faire) jolies. Mon approche repose sur trois trucs simples : faire sobre, faire efficace, et éviter les prises de tête inutiles. Si je peux coder une solution en une demi-journée au lieu de deux semaines de réunions… devine ce que je choisis.
+                        </p>
+                        
+                        <p class="text-gray-300 mb-8">
+                            Et comme tout ça bouge à une vitesse folle, je reste en veille constante — pas par obligation, mais parce que ça m’amuse. Tester un nouvel outil, comprendre une nouvelle techno ou détourner une API… ça fait partie du jeu.
+                        </p>
+                        
+                        <div class="border-l-4 border-blue-500 pl-4 mb-8">
+                            <p class="text-white italic">
+                                "La simplicité est la sophistication ultime." 
+                            </p>
+                            <p class="text-gray-400">Léonard, un pote à moi (de Vinci, pas celui du café)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="relative h-full min-h-96">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-2xl"></div>
+                        <div class="relative h-full flex items-center justify-center p-8">
+                            <div class="text-center">
+                                <div class="w-24 h-24 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <i class="fas fa-lightbulb text-blue-400 text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Mes valeurs</h3>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-brain text-blue-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Curiosité</h4>
+                                    </div>
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-heart text-pink-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Passion</h4>
+                                    </div>
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-hand-holding-heart text-emerald-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Partage</h4>
+                                    </div>
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-bullseye text-yellow-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Efficacité</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    Travaillons <span class="gradient-text">ensemble</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+                <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+                    Tu veux construire quelque chose d'unique ? Dis-m'en plus sur ton projet et discutons-en !
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nom complet</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Sujet</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-slate-800 rounded-xl p-8 h-full">
+                        <h3 class="text-2xl font-bold text-white mb-6">Mes coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-envelope text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-400 mb-1">Email</h4>
+                                    <a href="mailto:moubarakelmahdipro@gmail.com" class="text-white hover:text-blue-400 transition">moubarakelmahdipro@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fab fa-linkedin-in text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-400 mb-1">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/el-mahdi-moubarak" target="_blank" class="text-white hover:text-emerald-400 transition">linkedin.com/in/el-mahdi-moubarak</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-map-marker-alt text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-400 mb-1">Localisation</h4>
+                                    <p class="text-white">Nice, Côte d'Azur (digital nomad)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="text-lg font-bold text-white mb-4">Disponible pour</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full">Contrats freelance</span>
+                                <span class="px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full">Projets SaaS</span>
+                                <span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full">Consulting tech</span>
+                                <span class="px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full">Collaborations innovantes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <a href="#home" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-emerald-500 flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">EM</span>
+                        </div>
+                        <span class="text-white font-bold text-xl title-font">El Mahdi</span>
+                    </a>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="https://www.linkedin.com/in/el-mahdi-moubarak" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="mailto:moubarakelmahdipro@gmail.com" class="text-gray-400 hover:text-white transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-gray-400 text-sm">
+                    &copy; 2023 El Mahdi Moubarak. Tous droits réservés.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</html>

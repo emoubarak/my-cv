@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mahdi Moubarak | Versatile Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-opacity-90 bg-darker backdrop-blur-sm z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center space-x-2">
+                     
+                        <span class="text-white font-bold text-xl title-font">El Mahdi</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white nav-link">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-white nav-link">Profile</a>
+                    <a href="#experience" class="text-gray-300 hover:text-white nav-link">Experience</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white nav-link">Projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white nav-link">Contact</a>
+                    <a href="#contact" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300">
+                        Let's work together
+                    </a>
+                    <a id="lang-switch"
+                    class="flex items-center gap-1 text-gray-300 hover:text-white transition"
+                    aria-label="Change language" href="fr.html">
+                    <img id="flag-icon" src="https://flagcdn.com/w20/fr.png" alt="FR" class="w-5 h-5 rounded-full" />
+                    <span id="lang-code" class="text-sm font-semibold">FR</span>
+                </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-darker px-4 pb-4">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Profile</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Experience</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Contact</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-center bg-gradient-to-r from-blue-500 to-emerald-500 text-white">
+                    Let's work together
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div id="canvas-container"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-darker opacity-90"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="flex flex-col items-center">
+                <div class="w-32 h-32 rounded-full border-4 border-blue-500 mb-6 overflow-hidden">
+                    <img src="profile.png" 
+                         alt="El Mahdi Moubarak" class="w-full h-full object-cover">
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 title-font">
+                    <span class="gradient-text">El Mahdi Moubarak</span>
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Versatile Software Developer 
+                    <br>
+                    SaaS, E-commerce & AI
+                </h2>
+                
+                <p class="text-xl md:text-2xl text-white mb-12 italic">
+                    "With a bit of code and lots of resourcefulness, I'm building tomorrow."
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300 flex items-center">
+                        <i class="fas fa-code mr-2"></i> Explore my projects
+                    </a>
+                    <a href="#about" class="px-6 py-3 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500 hover:text-white transition duration-300 flex items-center">
+                        <i class="fas fa-user mr-2"></i> Discover my journey
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-24 flex justify-center space-x-6">
+                <div class="floating">
+                    <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
+                        <i class="fab fa-angular text-blue-400 text-2xl"></i>
+                    </div>
+                </div>
+                <div class="floating floating-delay-1">
+                    <div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                        <i class="fab fa-react text-emerald-400 text-2xl"></i>
+                    </div>
+                </div>
+                <div class="floating floating-delay-2">
+                    <div class="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center">
+                        <i class="fab fa-python text-purple-400 text-2xl"></i>
+                    </div>
+                </div>
+                <div class="floating floating-delay-3">
+                    <div class="w-16 h-16 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                        <i class="fab fa-js text-yellow-400 text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    About <span class="gradient-text">me</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-2xl min-w-80"></div>
+                        <img src="profile.png"
+                             alt="El Mahdi Moubarak" class="absolute top-6 left-6 w-full h-96 object-cover rounded-2xl border-4 border-darker ">
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">
+                        Versatile and passionate software developer
+                    </h3>
+                    
+                    <p class="text-gray-300 mb-6">
+                        I learned the trade by getting my hands dirty. From SaaS to e-commerce, through more or less cobbled together automations, I've touched a bit of everything. Naturally curious and resourceful by necessity, I'm that kind of developer/Swiss army knife profile - always ready to pull out an idea or a line of code.
+                    </p>
+                    
+                    <p class="text-gray-300 mb-8">
+                        My favorite tool? Artificial intelligence (when it doesn't make me lose three hours on a non-existent bug). I use it to save time, simplify other people's lives (and mine), and turn clunky workflows into well-oiled machines. In short, I'm where I need to be when I need to be - especially if something needs tinkering.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="px-4 py-2 bg-blue-500/20 rounded-full flex items-center">
+                            <img src="https://flagcdn.com/w20/fr.png" alt="French" class="language-flag">
+                            <span class="text-blue-400">French (native)</span>
+                        </div>
+                        <div class="px-4 py-2 bg-emerald-500/20 rounded-full flex items-center">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
+                            <span class="text-emerald-400">English (professional)</span>
+                        </div>
+                        <div class="px-4 py-2 bg-purple-500/20 rounded-full flex items-center">
+                            <img src="https://flagcdn.com/w20/es.png" alt="Spanish" class="language-flag">
+                            <span class="text-purple-400">Spanish (professional)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300 flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Contact me
+                        </a>
+                        <a href="#" class="px-6 py-3 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500 hover:text-white transition duration-300 flex items-center">
+                            <i class="fas fa-download mr-2"></i> Download my CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Timeline -->
+            <div class="mt-20">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+                    My academic <span class="gradient-text">journey</span>
+                </h3>
+                
+                <div class="relative timeline max-w-3xl mx-auto pl-16">
+                    <div class="mb-12 timeline-item">
+                        <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-white">IMT Nord Europe</h4>
+                                <span class="text-sm text-gray-400">2017 - 2022</span>
+                            </div>
+                            <p class="text-gray-300 mb-2">Engineering degree in computer science, networks and telecommunications</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Web Development</span>
+                                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Data Structures</span>
+                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Digital Systems</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">Cybersecurity</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-12 timeline-item">
+                        <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-white">Lycée Français International Louis-Massignon</h4>
+                                <span class="text-sm text-gray-400">2017</span>
+                            </div>
+                            <p class="text-gray-300">Scientific Baccalaureate, Mathematics specialization, Music option</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Section -->
+            <div class="mt-20">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+                    My key <span class="gradient-text">skills</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Web & Mobile Development -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-blue-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Web & Mobile Development</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Vue.js</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">React Native</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Django</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">AngularJS</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">TypeScript</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">PostgreSQL</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Spring Boot</span>
+                            <span class="skill-badge px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-cloud text-emerald-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Cloud & DevOps</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">AWS (EC2, Route53)</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Git</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Docker</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Heroku</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">Vercel</span>
+                            <span class="skill-badge px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">CI/CD</span>
+                        </div>
+                    </div>
+                    
+                    <!-- E-commerce & Automation -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-shopping-cart text-purple-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">E-commerce & Automation</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Shopify API</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Gadget Dev</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">SEO</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Automation</span>
+                            <span class="skill-badge px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Liquid</span>
+                        </div>
+                    </div>
+                    
+                    <!-- AI & LLM APIs -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-robot text-yellow-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">AI & LLM APIs</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">OpenAI API</span>
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">ElevenLabs</span>
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">Vectorization</span>
+                            <span class="skill-badge px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">GPT</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Languages -->
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover">
+                        <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-language text-pink-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Languages</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">French (native)</span>
+                            <span class="skill-badge px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">English (professional)</span>
+                            <span class="skill-badge px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Spanish (professional)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    My professional <span class="gradient-text">experience</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            </div>
+            
+            <div class="relative timeline max-w-4xl mx-auto pl-16">
+                <!-- Board of Cyber -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Board of Cyber</h4>
+                                <p class="text-gray-400">Paris, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">March 2023 - Present</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Position:</span> Front-End Software Engineer
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Development of a Security Rating® SaaS solution to assess companies' cyber maturity.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Responsibilities:</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Angular development of the Security Rating® SaaS software: component implementation, bug fixing, library migration, optimization</li>
+                                <li>Development of the company's corporate website</li>
+                                <li>Development of cybersecurity analysis probes in Python</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">AngularJS</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Grav</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Git</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ALTAO -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">ALTAO - Healthcare Sector</h4>
+                                <p class="text-gray-400">Lille, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">September 2021 - September 2022</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Position:</span> Full-Stack Software Engineer
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Development of a web application for correcting errors in hospital reports, integrating a prediction algorithm and a rules engine.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Responsibilities:</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Design, implementation and monitoring of a web application to correct errors in hospital reports</li>
+                                <li>Application deployment using Amazon Web Services (EC2, Route53, Amplify)</li>
+                                <li>Collaboration with doctors and consultants to understand business logic</li>
+                                <li>Collaboration with data science interns and integration of their algorithms</li>
+                                <li>Participation in managing various projects focused on digitalization in the medical field</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Django</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">AWS</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">EC2</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Route53</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Amplify</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deuspi -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Deuspi - Express Delivery Startup</h4>
+                                <p class="text-gray-400">Lille, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">March 2021 - June 2021</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Position:</span> Mobile Front-End Developer
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Front-end development of a React Native mobile application for a grocery delivery startup in under 15 minutes.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Responsibilities:</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Design of a first draft of the interface (MockPlus)</li>
+                                <li>Collaboration with a UX/UI design intern and a freelance back-end developer</li>
+                                <li>Front-end development of a grocery delivery mobile application (React Native)</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">React Native</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">MockPlus</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Worldline -->
+                <div class="mb-12 timeline-item">
+                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Worldline - Payments & Transactions</h4>
+                                <p class="text-gray-400">Seclin, France</p>
+                            </div>
+                            <span class="text-sm text-blue-400 mt-2 md:mt-0">April 2019 - August 2019</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            <span class="font-semibold text-white">Position:</span> Web Application Developer
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Creation of an internal tool facilitating the debugging of interactive payment solution demos, development of a mobile application for detecting product expiration dates with camera.
+                        </p>
+                        <div class="mb-4">
+                            <h5 class="text-white font-semibold mb-2">Responsibilities:</h5>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                <li>Development of a web application allowing the R&D team to debug interactive demos with an MQTT broker and predefined requests</li>
+                                <li>Development of a mobile application for detecting product expiration dates with the camera</li>
+                                <li>Code review of other projects (PHP, HTML/CSS, JavaScript)</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">MQTT</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Docker</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Java Android</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+   <!-- Projects Section -->
+<section id="projects" class="py-20 bg-darker">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                My <span class="gradient-text">projects</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+                Discover a selection of my personal and professional projects, ranging from web development to automation and AI.
+            </p>
+        </div>
+        
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-full filter-btn active" data-filter="all">All</button>
+            <button class="px-4 py-2 border border-blue-500 text-blue-400 rounded-full filter-btn" data-filter="site-vitrine">Showcase</button>
+            <button class="px-4 py-2 border border-emerald-500 text-emerald-400 rounded-full filter-btn" data-filter="e-commerce">E-commerce</button>
+            <button class="px-4 py-2 border border-purple-500 text-purple-400 rounded-full filter-btn" data-filter="seo">SEO</button>
+            <button class="px-4 py-2 border border-yellow-500 text-yellow-400 rounded-full filter-btn" data-filter="webapp">Web App</button>
+            <button class="px-4 py-2 border border-pink-500 text-pink-400 rounded-full filter-btn" data-filter="mobile">Mobile App</button>
+            <button class="px-4 py-2 border border-red-500 text-red-400 rounded-full filter-btn" data-filter="software">Software Dev</button>
+            <button class="px-4 py-2 border border-indigo-500 text-indigo-400 rounded-full filter-btn" data-filter="ia">AI</button>
+        </div>
+        
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 projects-grid">
+            <!-- Vyrion Capital -->
+            <div class="project-card" data-category="site-vitrine">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Vyrion Capital</h3>
+                            <p class="text-gray-300 mb-4">International broker website</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Showcase</span>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Broker</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Vyrion Capital</h3>
+                        <p class="text-gray-200 mb-4">Showcase website for an international broker with professional design and UX optimization.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Design</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Responsive</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UX</span>
+                        </div>
+                        <a href="https://vyrioncapital.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-blue-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="site-vitrine seo">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-indigo-600 to-blue-400 flex items-center justify-center">
+                            <i class="fas fa-bullhorn text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">KSUR Agency</h3>
+                            <p class="text-gray-300 mb-4">Digital agency in Morocco</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Showcase site</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Agency</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Morocco</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Wordpress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-indigo-500/20 to-blue-400/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">KSUR Agency</h3>
+                        <p class="text-gray-200 mb-4">Modern showcase website for a digital agency based in Morocco, highlighting its services in marketing, web development, and branding.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Digital</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Morocco</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Branding</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Wordpress</span>
+                        </div>
+                        <a href="https://agence-ksur.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-category="site-vitrine seo">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-coins text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">le Crypto Guide</h3>
+                            <p class="text-gray-300 mb-4">Crypto staking training courses</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">Showcase site</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">Crypto</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">WordPress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">le Crypto Guide</h3>
+                        <p class="text-gray-200 mb-4">Educational WordPress site to discover and purchase crypto staking training courses, with integrated sales funnel.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Education</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Staking</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">WordPress</span>
+                        </div>
+                        <a href="https://lecryptoguide.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-pink-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mon Jouet Montessori -->
+            <div class="project-card" data-category="e-commerce seo">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-yellow-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Mon Jouet Montessori</h3>
+                            <p class="text-gray-300 mb-4">SEO-optimized e-commerce store</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">E-commerce</span>
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">SEO</span>
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">Shopify</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-yellow-500/20 to-pink-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Mon Jouet Montessori</h3>
+                        <p class="text-gray-200 mb-4">An SEO-optimized online store in the Montessori educational toys niche, with automated processes.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Dropshipping</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Marketing</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Conversion</span>
+                        </div>
+                        <a href="https://mon-jouet-montessori.com/" target="_blank" class="mt-auto px-4 py-2 bg-white text-yellow-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voyager Léger -->
+            <div class="project-card" data-category="e-commerce">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center">
+                            <i class="fas fa-suitcase-rolling text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Voyager Léger</h3>
+                            <p class="text-gray-300 mb-4">E-commerce travel accessories</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">E-commerce</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-pink-500/20 to-red-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Voyager Léger</h3>
+                        <p class="text-gray-200 mb-4">An online store specializing in lightweight travel accessories, with strong optimization for user experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UX Design</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Conversion</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">FB Ads</span>
+                        </div>
+                        <a href="https://voyager-leger.fr/" class="mt-auto px-4 py-2 bg-white text-pink-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Piktechs -->
+            <div class="project-card" data-category="webapp">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
+                            <i class="fas fa-id-card-alt text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Piktechs</h3>
+                            <p class="text-gray-300 mb-4">NFC employee cards SaaS</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Web App</span>
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">NFC</span>
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">Next.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Piktechs</h3>
+                        <p class="text-gray-200 mb-4">An innovative platform for creating virtual business cards and selling customizable NFC cards.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">React</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Node.js</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">NFC API</span>
+                        </div>
+                        <a href="https://piktechs.com/" class="mt-auto px-4 py-2 bg-white text-red-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Deuspi -->
+            <div class="project-card" data-category="mobile">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Deuspi</h3>
+                            <p class="text-gray-300 mb-4">Grocery delivery application</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Mobile</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">Delivery</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">React Native</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Deuspi</h3>
+                        <p class="text-gray-200 mb-4">Innovative mobile application for fast and efficient grocery delivery.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">React Native</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Geolocation</span>
+                        </div>
+                        <a href="https://www.linkedin.com/company/deuspi/about/" class="mt-auto px-4 py-2 bg-white text-indigo-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RSS Tool Altao -->
+            <div class="project-card" data-category="webapp">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
+                            <i class="fas fa-notes-medical text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">RSS Tool Altao</h3>
+                            <p class="text-gray-300 mb-4">RSS health record correction application</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Web App</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Health</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Data</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">RSS Tool Altao</h3>
+                        <p class="text-gray-200 mb-4">Web application for correction and validation of RSS health records, with intuitive interface.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">SPA</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UX Design</span>
+                        </div>
+                        <a href="https://altao.com/" class="mt-auto px-4 py-2 bg-white text-green-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shopify Ecommerce Bulk -->
+            <div class="project-card" data-category="e-commerce ia software">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-emerald-500 flex items-center justify-center">
+                            <i class="fab fa-shopify text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Shopify Ecommerce Bulk</h3>
+                            <p class="text-gray-300 mb-4">Bulk Shopify store creation tool</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Automation</span>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Shopify Ecommerce Bulk</h3>
+                        <p class="text-gray-200 mb-4">Automation tool for large-scale creation and configuration of Shopify stores with AI assistance.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Shopify API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Python</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">GPT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Optimisation UX & Thèmes Shopify -->
+            <div class="project-card" data-category="e-commerce">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">UX Optimization & Shopify Themes</h3>
+                            <p class="text-gray-300 mb-4">Customer journey improvement & theme design</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">UX Design</span>
+                                <span class="px-2 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">Liquid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">UX Optimization & Shopify Themes</h3>
+                        <p class="text-gray-200 mb-4">Service for improving customer journey and creating custom designs for Shopify stores.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">UI/UX</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Liquid</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Conversion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Finder AI -->
+            <div class="project-card" data-category="ia e-commerce software">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Product Finder AI</h3>
+                            <p class="text-gray-300 mb-4">AI-powered Shopify chatbot</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Shopify</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">GPT</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Vectorization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Product Finder AI</h3>
+                        <p class="text-gray-200 mb-4">A revolutionary tool for Shopify stores that allows customers to find products through an intelligent chatbot.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">OpenAI API</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Embeddings</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Liquid</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text-to-Short-Video -->
+            <div class="project-card" data-category="ia software">
+                <div class="project-card-inner h-full">
+                    <div class="project-card-front h-full bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-gradient-to-r from-emerald-500 to-yellow-500 flex items-center justify-center">
+                            <i class="fas fa-video text-white text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Text-to-Short-Video</h3>
+                            <p class="text-gray-300 mb-4">AI video generation (GPT, DALL-E, ElevenLabs)</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs">OpenAI</span>
+                                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs">ElevenLabs</span>
+                                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs">FFmpeg</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-back h-full bg-gradient-to-br from-emerald-500/20 to-yellow-500/20 rounded-xl p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-white mb-4">Text-to-Short-Video</h3>
+                        <p class="text-gray-200 mb-4">A complete pipeline to automatically generate short videos from text, with synthetic voice and automatic editing.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">GPT-4</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">TTS</span>
+                            <span class="px-2 py-1 bg-white/10 text-white rounded-full text-xs">Automation</span>
+                        </div>
+                        <a href="https://github.com/moubarakelmahdi1/Prompt-to-Short-Video" class="mt-auto px-4 py-2 bg-white text-emerald-600 rounded-full text-sm font-medium hover:bg-gray-100 transition">View project</a>
+                    </div>
+                </div>
+            </div>
+            
+      
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    My <span class="gradient-text">vision</span> & philosophy
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <div class="bg-slate-800/50 rounded-2xl p-8 backdrop-blur-sm border border-slate-700/50">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">
+                            Why I do what I do
+                        </h3>
+                        
+                        <p class="text-gray-300 mb-6">
+                            At my core, I love understanding how things work. Even more when I can break them, tweak them, then make them run better than before. For me, tech isn’t just about code — it’s a tool to simplify life, unlock situations, and sometimes even save time to grab a coffee.
+                        </p>
+                        
+                        <p class="text-gray-300 mb-6">
+                            I’m not chasing perfection, but I do like things to be clear, smooth, and (while we’re at it) nice to look at. My approach is built on three simple ideas: keep it clean, keep it efficient, and skip the pointless headaches. If I can code a solution in half a day instead of sitting through two weeks of meetings… guess what I’ll pick.
+                        </p>
+                        
+                        <p class="text-gray-300 mb-8">
+                            And since all of this evolves insanely fast, I stay constantly tuned in — not because I have to, but because I actually enjoy it. Testing a new tool, exploring a new tech, or hacking an API… it’s all part of the fun.
+                        </p>
+                        
+                        <div class="border-l-4 border-blue-500 pl-4 mb-8">
+                            <p class="text-white italic">
+                                "Simplicity is the ultimate sophistication."
+                            </p>
+                            <p class="text-gray-400">Leonard — a buddy of mine (da Vinci, not the guy from the café)</p>
+                        </div>                        
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="relative h-full min-h-96">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-2xl"></div>
+                        <div class="relative h-full flex items-center justify-center p-8">
+                            <div class="text-center">
+                                <div class="w-24 h-24 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <i class="fas fa-lightbulb text-blue-400 text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">My Values</h3>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-brain text-blue-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Curiosity</h4>
+                                    </div>
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-heart text-pink-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Passion</h4>
+                                    </div>
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-hand-holding-heart text-emerald-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Sharing</h4>
+                                    </div>
+                                    <div class="p-4 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                                        <i class="fas fa-bullseye text-yellow-400 text-xl mb-2"></i>
+                                        <h4 class="text-white font-medium">Efficiency</h4>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 title-font">
+                    Let’s work <span class="gradient-text">together</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+                <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+                    Want to build something unique? Tell me more about your project — let’s talk!
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Object</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg contact-input text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full hover:opacity-90 transition duration-300">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-slate-800 rounded-xl p-8 h-full">
+                        <h3 class="text-2xl font-bold text-white mb-6">Mes coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-envelope text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-400 mb-1">Email</h4>
+                                    <a href="mailto:moubarakelmahdipro@gmail.com" class="text-white hover:text-blue-400 transition">moubarakelmahdipro@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fab fa-linkedin-in text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-400 mb-1">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/el-mahdi-moubarak" target="_blank" class="text-white hover:text-emerald-400 transition">linkedin.com/in/el-mahdi-moubarak</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-map-marker-alt text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-400 mb-1">Localisation</h4>
+                                    <p class="text-white">Nice, Côte d'Azur (digital nomad)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="text-lg font-bold text-white mb-4">Available for</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full">Freelance contracts</span>
+                                <span class="px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full">SaaS projects</span>
+                                <span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full">Tech consulting</span>
+                                <span class="px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full">Innovative collaborations</span>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <a href="#home" class="flex items-center space-x-2">
+                        <span class="text-white font-bold text-xl title-font">El Mahdi</span>
+                    </a>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="https://www.linkedin.com/in/el-mahdi-moubarak" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="mailto:moubarakelmahdipro@gmail.com" class="text-gray-400 hover:text-white transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-gray-400 text-sm">
+                    &copy; 2023 El Mahdi Moubarak. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</html>
