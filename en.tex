@@ -1,0 +1,198 @@
+% CV El Mahdi Moubarak - Overleaf Template compatible with pdfLaTeX
+\documentclass[a4paper,11pt]{article}
+
+% Required packages
+\usepackage[a4paper,margin=1cm]{geometry}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{multicol}
+
+% Color definitions
+\definecolor{primary}{RGB}{0, 112, 192}  % Professional blue
+\definecolor{light}{RGB}{240, 240, 240}  % Light gray
+\definecolor{dark}{RGB}{50, 50, 50}      % Dark gray
+
+% Link configuration
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    urlcolor=primary
+}
+
+% Section style
+\titleformat{\section}
+    {\normalfont\Large\bfseries}
+    {}
+    {0em}
+    {\color{primary}\titlerule\vspace{.2em}\MakeUppercase}
+    []
+
+% Remove page numbers
+\pagestyle{empty}
+
+% List configuration
+\setlist[itemize]{leftmargin=*,label=\textbullet}
+
+% Begin document
+\begin{document}
+
+% Header with name and contact info
+\begin{center}
+    {\Huge\textbf{EL MAHDI MOUBARAK}} \\
+    \vspace{0.3cm}
+    {\large Full-Stack Developer · SaaS · E-commerce · AI} \\
+    \vspace{0.3cm}
+    \begin{tabular}{ccccc}
+        \faMapMarker\  Nice, French Riviera & $\cdot$ & 
+        \faEnvelope\  \href{mailto:moubarakelmahdipro@gmail.com}{moubarakelmahdipro@gmail.com} & $\cdot$ &
+        \faLinkedin\  \href{https://www.linkedin.com/in/el-mahdi-moubarak}{LinkedIn}
+    \end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+% Profile section
+\section{PROFILE}
+Self-taught full-stack developer and engineer by training, I thrive at the intersection of code, automation, and business optimization. My approach: pragmatic, product-driven, and relentlessly resourceful. I build useful, robust, and fast-to-deploy tools, whether it's a SaaS MVP, an automated Shopify store, or an AI pipeline.
+
+\vspace{0.3cm}
+
+% Professional Experience section
+\section{PROFESSIONAL EXPERIENCE}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Front-End Software Engineer} & \textbf{Board of Cyber — Paris (remote)} \\
+\textit{March 2023 – Present} & \begin{itemize}[nosep]
+    \item Developed SaaS product \textit{Security Rating®} (Angular, TypeScript)
+    \item Built UI components, performed refactoring, bug fixes, and optimizations
+    \item Developed the corporate website using Grav CMS
+    \item Contributed to cybersecurity probes in Python
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.2cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Full-Stack Software Engineer} & \textbf{ALTAO Santé — Lille} \\
+\textit{Sept. 2021 – Sept. 2022} & \begin{itemize}[nosep]
+    \item Built a web app for error correction in medical reports (Vue.js + Django)
+    \item Deployed on AWS (EC2, Route53, Amplify)
+    \item Integrated AI algorithms with data scientists
+    \item Collaborated with medical professionals to validate business logic
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.2cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Mobile Front-End Developer} & \textbf{Deuspi — Lille} \\
+\textit{March 2021 – June 2021} & \begin{itemize}[nosep]
+    \item Developed the mobile interface of a rapid delivery app
+    \item Collaborated with a UX designer and a back-end freelancer
+    \item Prototyped using React Native + mockups via MockPlus
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.2cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Web Application Developer (Intern)} & \textbf{Worldline — Seclin} \\
+\textit{April 2019 – August 2019} & \begin{itemize}[nosep]
+    \item Internal R\&D tool (Vue.js + MQTT + Spring Boot)
+    \item Mobile app to detect expiration dates using the camera
+    \item Code reviews (PHP, JS, HTML/CSS)
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.3cm}
+
+% Education section
+\section{EDUCATION}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{IMT Nord Europe} & \textbf{Engineering Degree in Computer Science, Networks \& Telecoms} \\
+\textit{Lille | 2017 – 2022} & \\
+\end{tabularx}
+
+\vspace{0.1cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Lycée Français Louis-Massignon (AEFE)} & \textbf{Scientific Baccalaureate, Math Major, Music Option} \\
+\textit{Casablanca | 2017} & \\
+\end{tabularx}
+
+\newpage
+
+% Skills section
+\section{SKILLS}
+
+\begin{multicols}{2}
+\textbf{Web \& Mobile Development}
+\begin{itemize}[nosep]
+    \item Vue.js, React Native, AngularJS, TypeScript
+    \item Django, Spring Boot, PostgreSQL, HTML/CSS/JS
+\end{itemize}
+
+\textbf{Cloud \& DevOps}
+\begin{itemize}[nosep]
+    \item AWS (EC2, Route53, Amplify), Docker
+    \item Git, Vercel, CI/CD
+\end{itemize}
+
+\columnbreak
+
+\textbf{E-commerce \& Automation}
+\begin{itemize}[nosep]
+    \item Shopify API, Liquid, Gadget Dev, SEO
+    \item Automation (Python)
+\end{itemize}
+
+\textbf{AI \& LLM APIs}
+\begin{itemize}[nosep]
+    \item OpenAI API, GPT-4, ElevenLabs
+    \item Semantic vectorization, AI-based video generation
+\end{itemize}
+\end{multicols}
+
+\vspace{0.15cm}
+
+\textbf{Languages:} \faFlag\ French (native), \faGlobe\ English (professional), \faGlobe\ Spanish (professional)
+
+\vspace{0.3cm}
+
+% Key Projects section
+\section{KEY PROJECTS}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\faShoppingCart\ \textbf{Shopify Bulk Builder} & Automated store creation with AI \\
+\faFilm\ \textbf{Text-to-Short-Video} & AI video generation from text (GPT + ElevenLabs + FFmpeg) \\
+\faRocket\ \textbf{Piktechs} & NFC cards SaaS (Next.js + React) \\
+\end{tabularx}
+
+\vspace{0.3cm}
+
+% Philosophy and availability
+\section{PHILOSOPHY \& AVAILABILITY}
+
+\begin{minipage}{0.68\textwidth}
+\textit{"Keep it clean, keep it efficient, no fuss."}
+
+I don’t chase theoretical perfection, but practical solutions. What drives me? Curiosity, a passion for useful code, and an obsession with smooth workflows.
+\end{minipage}
+\hfill
+\begin{minipage}{0.28\textwidth}
+\textbf{Available for:}
+\begin{itemize}[nosep]
+    \item Freelance missions
+    \item SaaS development \& automations  
+    \item Tech consulting
+\end{itemize}
+\end{minipage}
+
+\end{document}

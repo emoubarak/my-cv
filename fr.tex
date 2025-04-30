@@ -1,0 +1,198 @@
+% CV El Mahdi Moubarak - Template Overleaf compatible avec pdfLaTeX
+\documentclass[a4paper,11pt]{article}
+
+% Packages nécessaires
+\usepackage[a4paper,margin=1cm]{geometry}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{multicol}
+
+% Définition des couleurs
+\definecolor{primary}{RGB}{0, 112, 192}  % Bleu professionnel
+\definecolor{light}{RGB}{240, 240, 240}  % Gris clair
+\definecolor{dark}{RGB}{50, 50, 50}      % Gris foncé
+
+% Configuration des liens
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    urlcolor=primary
+}
+
+% Configuration du style des sections
+\titleformat{\section}
+    {\normalfont\Large\bfseries}
+    {}
+    {0em}
+    {\color{primary}\titlerule\vspace{.2em}\MakeUppercase}
+    []
+
+% Suppression des numéros de page
+\pagestyle{empty}
+
+% Configuration des listes
+\setlist[itemize]{leftmargin=*,label=\textbullet}
+
+% Début du document
+\begin{document}
+
+% En-tête avec nom et informations de contact
+\begin{center}
+    {\Huge\textbf{EL MAHDI MOUBARAK}} \\
+    \vspace{0.3cm}
+    {\large Développeur full-stack · SaaS · E-commerce · IA} \\
+    \vspace{0.3cm}
+    \begin{tabular}{ccccc}
+        \faMapMarker\  Nice, Côte d'Azur & $\cdot$ & 
+        \faEnvelope\  \href{mailto:moubarakelmahdipro@gmail.com}{moubarakelmahdipro@gmail.com} & $\cdot$ &
+        \faLinkedin\  \href{https://www.linkedin.com/in/el-mahdi-moubarak}{LinkedIn}
+    \end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+% Section Profil
+\section{PROFIL}
+Développeur full-stack autodidacte \& ingénieur de formation, j'évolue à la croisée du code, de l'automatisation et de l'optimisation business. Mon approche : pragmatique, orientée produit, et résolument débrouillarde. Je conçois des outils utiles, solides et rapides à mettre en œuvre, que ce soit pour un MVP SaaS, une boutique Shopify automatisée ou un pipeline IA.
+
+\vspace{0.3cm}
+
+% Section Expérience professionnelle
+\section{EXPÉRIENCE PROFESSIONNELLE}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Ingénieur Logiciel Front-End} & \textbf{Board of Cyber — Paris (remote)} \\
+\textit{Mars 2023 – Présent} & \begin{itemize}[nosep]
+    \item Développement du logiciel SaaS \textit{Security Rating®} (Angular, TypeScript)
+    \item Création de composants UI, refactoring, bugfix et optimisation
+    \item Dev du site institutionnel sous Grav CMS
+    \item Contribution à des sondes de cybersécurité en Python
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.2cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Ingénieur Logiciel Full-Stack} & \textbf{ALTAO Santé — Lille} \\
+\textit{Sept. 2021 – Sept. 2022} & \begin{itemize}[nosep]
+    \item Web app de correction d'erreurs dans des rapports médicaux (Vue.js + Django)
+    \item Déploiement sur AWS (EC2, Route53, Amplify)
+    \item Intégration d'algos IA avec data scientists
+    \item Collaboration médicale pour valider logique métier
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.2cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Développeur Front-End Mobile} & \textbf{Deuspi — Lille} \\
+\textit{Mars 2021 – Juin 2021} & \begin{itemize}[nosep]
+    \item Dév. de l'interface mobile d'une app de livraison ultra-rapide
+    \item Collaboration avec un UX designer \& un back-end freelance
+    \item Prototype sous React Native + maquettes avec MockPlus
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.2cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Développeur d'Applications Web (Stage)} & \textbf{Worldline — Seclin} \\
+\textit{Avril 2019 – Août 2019} & \begin{itemize}[nosep]
+    \item Outil interne R\&D (Vue.js + MQTT + Spring Boot)
+    \item App mobile de détection de date limite avec caméra
+    \item Revue de code (PHP, JS, HTML/CSS)
+\end{itemize} \\
+\end{tabularx}
+
+\vspace{0.3cm}
+
+% Section Formation
+\section{FORMATION}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{IMT Nord Europe} & \textbf{Diplôme d'ingénieur en Informatique, Réseaux \& Télécoms} \\
+\textit{Lille | 2017 – 2022} & \\
+\end{tabularx}
+
+\vspace{0.1cm}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Lycée Français Louis-Massignon (AEFE)} & \textbf{Bac Scientifique, Spé Maths, Option Musique} \\
+\textit{Casablanca | 2017} & \\
+\end{tabularx}
+
+\newpage
+
+% Section Compétences
+\section{COMPÉTENCES}
+
+\begin{multicols}{2}
+\textbf{Développement Web \& Mobile}
+\begin{itemize}[nosep]
+    \item Vue.js, React Native, AngularJS, TypeScript
+    \item Django, Spring Boot, PostgreSQL, HTML/CSS/JS
+\end{itemize}
+
+\textbf{Cloud \& DevOps}
+\begin{itemize}[nosep]
+    \item AWS (EC2, Route53, Amplify), Docker
+    \item Git, Vercel, CI/CD
+\end{itemize}
+
+\columnbreak
+
+\textbf{E-commerce \& Automation}
+\begin{itemize}[nosep]
+    \item Shopify API, Liquid, Gadget Dev, SEO
+    \item Automatisation (Python)
+\end{itemize}
+
+\textbf{IA \& APIs LLM}
+\begin{itemize}[nosep]
+    \item OpenAI API, GPT-4, ElevenLabs
+    \item Vectorisation sémantique, génération vidéo IA
+\end{itemize}
+\end{multicols}
+
+\vspace{0.15cm}
+
+\textbf{Langues:} \faFlag\ Français (natif), \faGlobe\ Anglais (professionnel), \faGlobe\ Espagnol (professionnel)
+
+\vspace{0.3cm}
+
+% Section Projets Marquants
+\section{PROJETS MARQUANTS}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\faShoppingCart\ \textbf{Shopify Bulk Builder} & Création automatisée de boutiques avec IA \\
+\faFilm\ \textbf{Text-to-Short-Video} & Génération vidéo IA à partir de texte (GPT + ElevenLabs + FFmpeg) \\
+\faRocket\ \textbf{Piktechs} & SaaS cartes NFC (Next.js + React) \\
+\end{tabularx}
+
+\vspace{0.3cm}
+
+% Philosophie et disponibilité
+\section{PHILOSOPHIE \& DISPONIBILITÉ}
+
+\begin{minipage}{0.68\textwidth}
+\textit{"Faire sobre, faire efficace, éviter les prises de tête."}
+
+Je ne vise pas la perfection théorique, mais la solution concrète. Mon moteur ? La curiosité, la passion du code utile, et une obsession pour les workflows bien huilés.
+\end{minipage}
+\hfill
+\begin{minipage}{0.28\textwidth}
+\textbf{Disponible pour:}
+\begin{itemize}[nosep]
+    \item Missions freelance
+    \item Dév SaaS \& automatisations  
+    \item Consulting tech
+\end{itemize}
+\end{minipage}
+
+\end{document}
