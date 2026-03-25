@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="Blog — El Mahdi Moubarak" description="Articles on engineering, SaaS, AI, and shipping products.">
@@ -23,7 +23,7 @@ const base = import.meta.env.BASE_URL;
   ) : (
     <div class="space-y-3">
       {sortedPosts.map((post) => (
-        <a href={`${base}blog/${post.id}`} class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 py-3 border-b border-ink/10 dark:border-dark-border group">
+        <a href={`${base}/blog/${post.id}`} class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 py-3 border-b border-ink/10 dark:border-dark-border group">
           <div class="flex-1 min-w-0">
             <span class="font-mono text-sm font-bold group-hover:text-accent transition-colors block truncate">{post.data.title}</span>
             <span class="text-xs text-muted line-clamp-1">{post.data.description}</span>
