@@ -36,6 +36,7 @@ const projects = [
 ];
 
 const stack = ["TypeScript", "Python", "Angular", "Vue.js", "React Native", "Next.js", "Django", "Node.js", "AWS", "Docker", "PostgreSQL", "CI/CD"];
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="El Mahdi Moubarak — Senior Software Engineer">
@@ -52,10 +53,10 @@ const stack = ["TypeScript", "Python", "Angular", "Vue.js", "React Native", "Nex
     </p>
 
     <div class="flex gap-3">
-      <a href="/cv" class="font-mono text-xs font-bold b-border px-4 py-2 b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors inline-block">
+      <a href={`${base}cv`} class="font-mono text-xs font-bold b-border px-4 py-2 b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors inline-block">
         View CV
       </a>
-      <a href="mailto:moubarak.elmahdi@outlook.com" class="font-mono text-xs font-bold b-border px-4 py-2 b-lift bg-paper dark:bg-dark-surface hover:bg-paper-alt transition-colors inline-block">
+      <a href="mailto:moubarakelmahdipro@gmail.com" class="font-mono text-xs font-bold b-border px-4 py-2 b-lift bg-paper dark:bg-dark-surface hover:bg-paper-alt transition-colors inline-block">
         Get in touch
       </a>
     </div>
@@ -90,13 +91,13 @@ const stack = ["TypeScript", "Python", "Angular", "Vue.js", "React Native", "Nex
   <section class="mb-16">
     <div class="flex items-center justify-between mb-4">
       <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest">Writing</h2>
-      <a href="/blog" class="font-mono text-xs text-muted hover:text-accent transition-colors">
+      <a href={`${base}blog`} class="font-mono text-xs text-muted hover:text-accent transition-colors">
         all posts →
       </a>
     </div>
     <div class="space-y-3">
       {latestPosts.map((post) => (
-        <a href={`/blog/${post.id}`} class="flex items-baseline justify-between gap-4 py-2 border-b border-ink/10 dark:border-dark-border group">
+        <a href={`${base}blog/${post.id}`} class="flex items-baseline justify-between gap-4 py-2 border-b border-ink/10 dark:border-dark-border group">
           <span class="font-mono text-sm font-medium group-hover:text-accent transition-colors">{post.data.title}</span>
           <span class="font-mono text-[0.65rem] text-muted shrink-0">
             {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
@@ -112,7 +113,7 @@ const stack = ["TypeScript", "Python", "Angular", "Vue.js", "React Native", "Nex
       <p class="font-mono text-sm font-bold mb-1">Let's connect</p>
       <p class="text-sm text-muted mb-4">Open to interesting projects and conversations.</p>
       <div class="flex flex-wrap gap-3 font-mono text-xs">
-        <a href="mailto:moubarak.elmahdi@outlook.com" class="underline underline-offset-2 hover:text-accent transition-colors">moubarak.elmahdi@outlook.com</a>
+        <a href="mailto:moubarakelmahdipro@gmail.com" class="underline underline-offset-2 hover:text-accent transition-colors">moubarakelmahdipro@gmail.com</a>
         <span class="text-muted">·</span>
         <a href="https://linkedin.com/in/el-mahdi-moubarak" target="_blank" class="underline underline-offset-2 hover:text-accent transition-colors">LinkedIn</a>
         <span class="text-muted">·</span>

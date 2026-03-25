@@ -71,6 +71,7 @@ const techGroups = [
   { label: "AI & Tooling", items: ["AI Pair Programming", "Claude/Gemini APIs", "Multi-pass OCR/Vision"] },
 ];
 
+const base = import.meta.env.BASE_URL;
 const interests = [
   { title: "Guitar", detail: "17 years. Former VP of the Music Club at IMT Nord Europe." },
   { title: "Philosophy", detail: "Perception, reality, and applied metaphysics." },
@@ -87,7 +88,7 @@ const interests = [
         <p class="font-mono text-xs text-muted">El Mahdi Moubarak — Senior Software Engineer · SaaS & AI</p>
       </div>
       <a
-        href="/cv.pdf"
+        href={`${base}cv.pdf`}
         download
         class="font-mono text-xs font-bold b-border px-4 py-2 b-shadow b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors shrink-0 inline-block"
       >
@@ -180,7 +181,7 @@ const interests = [
   <section>
     <div class="b-border p-6 bg-paper-alt dark:bg-dark-surface text-center">
       <a
-        href="/cv.pdf"
+        href={`${base}cv.pdf`}
         download
         class="font-mono text-xs font-bold b-border px-6 py-3 b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors inline-block"
       >
