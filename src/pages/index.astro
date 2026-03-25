@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const latestPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const projects = [
+  {
+    title: "PDFold",
+    description: "Multi-pass AI pipeline for OCR, layout understanding, and Markdown generation. Next.js, Gemini API, Stripe billing.",
+    tags: ["Next.js", "TypeScript", "Gemini", "Stripe"],
+    href: "#",
+  },
+  {
+    title: "env-doctor",
+    description: "Schema-driven CLI for validating environment variables with type checking. Published on npm.",
+    tags: ["Node.js", "CLI", "npm"],
+    href: "#",
+  },
+  {
+    title: "Video Generator",
+    description: "Multi-modal pipeline orchestrating GPT, DALL-E, and ElevenLabs for automated video generation from scripts.",
+    tags: ["Python", "Flask", "GPT", "DALL-E"],
+    href: "#",
+  },
+  {
+    title: "E-commerce Store",
+    description: "Profitable Shopify store — full lifecycle management including SEO, marketing, and custom Liquid themes.",
+    tags: ["Shopify", "Liquid", "SEO"],
+    href: "#",
+  },
+];
+
+const stack = ["TypeScript", "Python", "Angular", "Vue.js", "React Native", "Next.js", "Django", "Node.js", "AWS", "Docker", "PostgreSQL", "CI/CD"];
+---
+
+<Layout title="El Mahdi Moubarak — Senior Software Engineer">
+  <!-- Intro -->
+  <section class="mb-16">
+    <p class="font-mono text-xs text-muted mb-4">Senior Software Engineer · SaaS & AI</p>
+    <h1 class="text-3xl md:text-4xl leading-tight mb-6">
+      El Mahdi <span class="text-accent">Moubarak</span>
+    </h1>
+    <p class="text-base leading-relaxed max-w-2xl mb-8 text-body">
+      Pragmatic builder with 6+ years of experience. I write clean features, 
+      refactor legacy systems, and automate what should be automated. I use AI-assisted 
+      development to move faster — not to think less.
+    </p>
+
+    <div class="flex gap-3">
+      <a href="/cv" class="font-mono text-xs font-bold b-border px-4 py-2 b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors inline-block">
+        View CV
+      </a>
+      <a href="mailto:moubarak.elmahdi@outlook.com" class="font-mono text-xs font-bold b-border px-4 py-2 b-lift bg-paper dark:bg-dark-surface hover:bg-paper-alt transition-colors inline-block">
+        Get in touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="mb-16">
+    <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest mb-4">Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      {stack.map((s) => (
+        <span class="tag">{s}</span>
+      ))}
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="mb-16">
+    <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest mb-4">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {projects.map((p) => (
+        <Card
+          title={p.title}
+          description={p.description}
+          href={p.href}
+          tags={p.tags}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Latest Posts -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest">Writing</h2>
+      <a href="/blog" class="font-mono text-xs text-muted hover:text-accent transition-colors">
+        all posts →
+      </a>
+    </div>
+    <div class="space-y-3">
+      {latestPosts.map((post) => (
+        <a href={`/blog/${post.id}`} class="flex items-baseline justify-between gap-4 py-2 border-b border-ink/10 dark:border-dark-border group">
+          <span class="font-mono text-sm font-medium group-hover:text-accent transition-colors">{post.data.title}</span>
+          <span class="font-mono text-[0.65rem] text-muted shrink-0">
+            {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <div class="b-border p-6 bg-paper-alt dark:bg-dark-surface">
+      <p class="font-mono text-sm font-bold mb-1">Let's connect</p>
+      <p class="text-sm text-muted mb-4">Open to interesting projects and conversations.</p>
+      <div class="flex flex-wrap gap-3 font-mono text-xs">
+        <a href="mailto:moubarak.elmahdi@outlook.com" class="underline underline-offset-2 hover:text-accent transition-colors">moubarak.elmahdi@outlook.com</a>
+        <span class="text-muted">·</span>
+        <a href="https://linkedin.com/in/el-mahdi-moubarak" target="_blank" class="underline underline-offset-2 hover:text-accent transition-colors">LinkedIn</a>
+        <span class="text-muted">·</span>
+        <a href="https://github.com/emoubarak" target="_blank" class="underline underline-offset-2 hover:text-accent transition-colors">GitHub</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,86 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "El Mahdi Moubarak — Senior Software Engineer · SaaS & AI" } = Astro.props;
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/cv", label: "CV" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+  <script is:inline>
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <header class="border-b-2 border-ink dark:border-dark-border py-4 sticky top-0 z-50 bg-paper dark:bg-dark-paper">
+    <nav class="max-w-3xl mx-auto px-5 flex items-center justify-between">
+      <a href="/" class="font-mono text-sm font-bold tracking-tight hover:text-accent transition-colors">
+        emoubarak
+      </a>
+
+      <div class="flex items-center gap-5">
+        {navLinks.map(link => (
+          <a href={link.href} class="font-mono text-xs font-medium text-muted hover:text-ink dark:hover:text-dark-ink transition-colors">
+            {link.label}
+          </a>
+        ))}
+
+        <button
+          id="theme-toggle"
+          class="b-border w-8 h-8 flex items-center justify-center text-xs font-mono font-bold cursor-pointer bg-paper dark:bg-dark-surface hover:bg-accent hover:text-white hover:border-accent transition-colors"
+          aria-label="Toggle dark mode"
+        >
+          <span id="icon-light" class="dark:hidden">D</span>
+          <span id="icon-dark" class="hidden dark:inline">L</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-1 max-w-3xl mx-auto px-5 py-12 w-full">
+    <slot />
+  </main>
+
+  <footer class="border-t-2 border-ink dark:border-dark-border py-6">
+    <div class="max-w-3xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-muted">
+      <span>&copy; {new Date().getFullYear()} El Mahdi Moubarak</span>
+      <div class="flex gap-4">
+        <a href="mailto:moubarak.elmahdi@outlook.com" class="hover:text-ink dark:hover:text-dark-ink transition-colors">email</a>
+        <a href="https://linkedin.com/in/el-mahdi-moubarak" target="_blank" class="hover:text-ink dark:hover:text-dark-ink transition-colors">linkedin</a>
+        <a href="https://github.com/emoubarak" target="_blank" class="hover:text-ink dark:hover:text-dark-ink transition-colors">github</a>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const h = document.documentElement;
+      h.classList.toggle('dark');
+      localStorage.setItem('theme', h.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

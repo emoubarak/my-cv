@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const experiences = [
+  {
+    company: "Board of Cyber",
+    role: "Full-Stack Engineer",
+    period: "Mar 2023 – Feb 2026",
+    location: "Paris (Remote)",
+    summary: "Core contributor to Security Rating®, a cyber posture assessment SaaS used by 200+ organizations.",
+    achievements: [
+      "Shipped frontend features at high cadence, supporting rapid user base scaling.",
+      "Optimized CI/CD pipelines and established comprehensive test coverage with Spectator — 100% regression-free deploys.",
+      "Engineered an automated Python/nmap vulnerability scanning probe for external attack surface analysis.",
+      "Led incremental Angular migrations and major dependency upgrades without disrupting the product roadmap.",
+    ],
+  },
+  {
+    company: "ALTAO",
+    role: "Full-Stack Engineer",
+    period: "Sep 2021 – Sep 2022",
+    location: "Lille (On-site)",
+    summary: "Architected a greenfield medical platform replacing a fragmented legacy workflow.",
+    achievements: [
+      "Led product lifecycle from medical requirement workshops to technical design.",
+      "Built the core platform and integrated prediction algorithms into a production-ready system for doctors.",
+      "Provisioned and managed full AWS infrastructure (EC2, Route53, Amplify) autonomously.",
+    ],
+  },
+  {
+    company: "Deuspi",
+    role: "Mobile Engineer",
+    period: "Mar 2021 – Jun 2021",
+    location: "Lille (Remote)",
+    summary: "Built and shipped the V1 React Native mobile app from scratch.",
+    achievements: [
+      "Transitioned the business from web-only to native mobile.",
+      "Implemented gamified UI for retention and co-architected real-time APIs for live order tracking.",
+    ],
+  },
+  {
+    company: "Worldline",
+    role: "Full-Stack Engineer",
+    period: "Apr 2019 – Aug 2019",
+    location: "Seclin (On-site)",
+    summary: "Developed a centralized R&D dashboard with MQTT broker integration.",
+    achievements: [
+      "Eliminated manual debugging, saving hours of engineering time per week.",
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: "Master's in Computer Science",
+    school: "IMT Nord Europe",
+    period: "2017 – 2022",
+    detail: "Full-stack development, distributed systems, cybersecurity, networks.",
+  },
+  {
+    degree: "Baccalaureate, Mathematics",
+    school: "Lycée Français Louis Massignon",
+    period: "2017",
+    detail: "AEFE network — Casablanca, Morocco.",
+  },
+];
+
+const techGroups = [
+  { label: "Languages & Frameworks", items: ["TypeScript", "Python", "Angular", "Vue.js", "React Native", "Next.js", "Django", "Node.js"] },
+  { label: "Cloud & DevOps", items: ["AWS", "Docker", "PostgreSQL", "CI/CD", "GitHub", "Vercel", "Supabase"] },
+  { label: "AI & Tooling", items: ["AI Pair Programming", "Claude/Gemini APIs", "Multi-pass OCR/Vision"] },
+];
+
+const interests = [
+  { title: "Guitar", detail: "17 years. Former VP of the Music Club at IMT Nord Europe." },
+  { title: "Philosophy", detail: "Perception, reality, and applied metaphysics." },
+  { title: "Strength Training", detail: "Consistency and physical resilience." },
+];
+---
+
+<Layout title="CV — El Mahdi Moubarak" description="Full CV — El Mahdi Moubarak, Senior Software Engineer.">
+  <!-- Header -->
+  <section class="mb-12">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+      <div>
+        <h1 class="text-2xl font-extrabold mb-1">Curriculum Vitae</h1>
+        <p class="font-mono text-xs text-muted">El Mahdi Moubarak — Senior Software Engineer · SaaS & AI</p>
+      </div>
+      <a
+        href="/cv.pdf"
+        download
+        class="font-mono text-xs font-bold b-border px-4 py-2 b-shadow b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors shrink-0 inline-block"
+      >
+        Download PDF ↓
+      </a>
+    </div>
+
+    <p class="text-sm leading-relaxed text-body">
+      Pragmatic builder with 6+ years of experience. Clean features, legacy refactoring, 
+      automation. AI-assisted development for speed — high-quality craftsmanship over unnecessary abstractions.
+    </p>
+  </section>
+
+  <!-- Experience -->
+  <section class="mb-12">
+    <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest mb-6">Experience</h2>
+    <div class="space-y-8">
+      {experiences.map((exp) => (
+        <div class="relative pl-5 border-l-2 border-ink dark:border-dark-border">
+          <div class="absolute left-[-5px] top-1 w-2 h-2 bg-accent"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
+            <h3 class="font-mono text-sm font-bold">
+              {exp.company} <span class="font-normal text-muted">— {exp.role}</span>
+            </h3>
+            <span class="font-mono text-[0.65rem] text-muted shrink-0">{exp.period}</span>
+          </div>
+          <p class="text-xs text-muted mb-2">{exp.location}</p>
+          <p class="text-sm mb-3">{exp.summary}</p>
+          <ul class="space-y-1.5">
+            {exp.achievements.map((a) => (
+              <li class="text-sm flex items-start gap-2">
+                <span class="text-accent font-mono text-xs mt-0.5 shrink-0">▪</span>
+                <span class="text-body">{a}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="mb-12">
+    <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest mb-6">Education</h2>
+    <div class="space-y-4">
+      {education.map((edu) => (
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-4 border-b border-ink/10 dark:border-dark-border">
+          <div>
+            <h3 class="font-mono text-sm font-bold">{edu.degree}</h3>
+            <p class="text-xs text-muted">{edu.school} — {edu.detail}</p>
+          </div>
+          <span class="font-mono text-[0.65rem] text-muted shrink-0">{edu.period}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Technical Stack -->
+  <section class="mb-12">
+    <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest mb-6">Technical Expertise</h2>
+    <div class="space-y-4">
+      {techGroups.map((g) => (
+        <div>
+          <p class="font-mono text-[0.65rem] text-muted mb-2">{g.label}</p>
+          <div class="flex flex-wrap gap-1.5">
+            {g.items.map((t) => (
+              <span class="tag">{t}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Interests -->
+  <section class="mb-12">
+    <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest mb-6">Beyond Code</h2>
+    <div class="space-y-2">
+      {interests.map((int) => (
+        <p class="text-sm">
+          <span class="font-mono font-bold">{int.title}</span>
+          <span class="text-muted"> — </span>
+          <span class="text-body">{int.detail}</span>
+        </p>
+      ))}
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section>
+    <div class="b-border p-6 bg-paper-alt dark:bg-dark-surface text-center">
+      <a
+        href="/cv.pdf"
+        download
+        class="font-mono text-xs font-bold b-border px-6 py-3 b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors inline-block"
+      >
+        Download CV as PDF ↓
+      </a>
+    </div>
+  </section>
+</Layout>
