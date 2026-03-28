@@ -72,7 +72,7 @@ Architected a **greenfield** medical platform replacing a fragmented legacy work
 
 * **Languages & Frameworks:** TypeScript, Python, Angular, Vue.js, React Native, Next.js, Django, Node.js
 * **Cloud & DevOps:** AWS (EC2, Route53, Amplify), Docker, PostgreSQL, CI/CD, GitHub, Vercel, Supabase
-* **AI & Tooling:** AI Pair Programming, Claude/Gemini APIs, Multi-pass OCR/Vision pipelines, OpenClaw
+* **AI & Tooling:** AI Pair Programming, Claude/Gemini APIs, Multi-pass OCR/Vision pipelines, OpenClaw, Claude Code, Claude Cowork, Paperclip, Agent Orchestration
 
 ---
 
