@@ -115,13 +115,22 @@ const projects = [
         <h1 class="text-2xl font-extrabold mb-1">Curriculum Vitae</h1>
         <p class="font-mono text-xs text-muted">El Mahdi Moubarak — Senior Software Engineer · SaaS & AI</p>
       </div>
-      <a
-        href={`${base}/cv.pdf`}
-        download
-        class="font-mono text-xs font-bold b-border px-4 py-2 b-shadow b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors shrink-0 inline-block"
-      >
-        Download PDF ↓
-      </a>
+      <div class="flex gap-3 shrink-0">
+        <a
+          href="https://calendly.com/moubarakelmahdipro/"
+          target="_blank"
+          class="font-mono text-xs font-bold b-border px-4 py-2 b-lift bg-paper dark:bg-dark-surface hover:bg-paper-alt transition-colors inline-block"
+        >
+          Book a Call
+        </a>
+        <a
+          href={`${base}/cv.pdf`}
+          download
+          class="font-mono text-xs font-bold b-border px-4 py-2 b-shadow b-lift bg-accent text-white border-ink hover:bg-accent-alt transition-colors inline-block"
+        >
+          Download PDF ↓
+        </a>
+      </div>
     </div>
 
     <p class="text-sm leading-relaxed text-body">
