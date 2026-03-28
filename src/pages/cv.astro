@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
 
 const experiences = [
   {
@@ -76,6 +77,33 @@ const interests = [
   { title: "Guitar", detail: "17 years. Former VP of the Music Club at IMT Nord Europe." },
   { title: "Philosophy", detail: "Perception, reality, and applied metaphysics." },
   { title: "Strength Training", detail: "Consistency and physical resilience." },
+];
+
+const projects = [
+  {
+    title: "PDFold",
+    description: "Multi-pass AI pipeline for OCR, layout understanding, and Markdown generation. Next.js, Gemini API, Stripe billing.",
+    tags: ["Next.js", "TypeScript", "Gemini", "Stripe"],
+    href: "https://github.com/emoubarak/pdfold",
+  },
+  {
+    title: "env-doctor",
+    description: "Schema-driven CLI for validating environment variables with type checking. Published on npm.",
+    tags: ["Node.js", "CLI", "npm"],
+    href: "https://github.com/emoubarak/env-doctor",
+  },
+  {
+    title: "Video Generator",
+    description: "Multi-modal pipeline orchestrating GPT, DALL-E, and ElevenLabs for automated video generation from scripts.",
+    tags: ["Python", "Flask", "GPT", "DALL-E"],
+    href: "https://github.com/emoubarak/prompt-to-short-video-generator",
+  },
+  {
+    title: "E-commerce Store",
+    description: "Profitable Shopify store — full lifecycle management including SEO, marketing, and custom Liquid themes.",
+    tags: ["Shopify", "Liquid", "SEO"],
+    href: "https://mon-jouet-montessori.com/",
+  },
 ];
 ---
 
@@ -159,6 +187,21 @@ const interests = [
             ))}
           </div>
         </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="mb-12">
+    <h2 class="font-mono text-xs font-bold text-muted uppercase tracking-widest mb-6">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {projects.map((p) => (
+        <Card
+          title={p.title}
+          description={p.description}
+          href={p.href}
+          tags={p.tags}
+        />
       ))}
     </div>
   </section>
